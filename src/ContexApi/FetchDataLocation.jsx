@@ -1,5 +1,5 @@
 import axios from "axios";
-const LocationData = (latitude,longitude) => {
+const LocationData = async (latitude,longitude) => {
 
     const APIKEY = import.meta.env.VITE_APIKEY;
   const APIURL = import.meta.env.VITE_APIURL;
@@ -7,7 +7,7 @@ const LocationData = (latitude,longitude) => {
   const API = `${APIURL}?lat=${latitude}&lon=${longitude}&appid=${APIKEY}`;
 
   try {
-    let apiRes = axios.get(API);
+    let apiRes = await axios.get(API);
     return apiRes;
   } catch (error) {
     console.error(`Api response error ${error}`);
